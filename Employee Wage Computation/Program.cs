@@ -21,14 +21,14 @@ namespace Employee_Wage_Computation
 
             switch (employeeStatus)
             {
-                case employeePresent:
+                case 1:
                     Console.WriteLine("Employee Present");
                     Console.WriteLine("Total wage is: " + wagePerHour * 8);
                     break;
-                case employeeAbsent:
+                case 0:
                     Console.WriteLine("Employee Absent");
                     break;
-                case employeePartTime:
+                case 2:
                     Console.WriteLine("Employee works part-time");
                     Console.WriteLine("Total wage is: " + wagePerHour * 4);
                     break;
