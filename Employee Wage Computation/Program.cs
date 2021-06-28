@@ -13,11 +13,11 @@ namespace Employee_Wage_Computation
 
             int employeePresent = 1;
             int employeeAbsent = 0;
-            int employeePartTime = 3;
+            int employeePartTime = 2;
             int employeeStatus;
             int wagePerHour = 20;
             Random random = new Random();
-            employeeStatus = random.Next(0, 2);
+            employeeStatus = random.Next(0, 3);
 
             if (employeeStatus == employeePresent)
             {
