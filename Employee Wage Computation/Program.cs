@@ -14,12 +14,14 @@ namespace Employee_Wage_Computation
             int employeePresent = 1;
             int employeeAbsent = 0;
             int employeeStatus;
+            int wagePerHour = 20;
             Random random = new Random();
             employeeStatus = random.Next(0, 2);
 
             if (employeeStatus == employeePresent)
             {
                 Console.WriteLine("Employee Present");
+                Console.WriteLine("Total wage is: "+ wagePerHour*8);
             }
             else 
             {
