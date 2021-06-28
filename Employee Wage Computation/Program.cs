@@ -17,7 +17,7 @@ namespace Employee_Wage_Computation
             int employeeStatus;
             int wagePerHour = 20;
             Random random = new Random();
-            employeeStatus = random.Next(0, 2);
+            employeeStatus = random.Next(0, 3);
 
             if (employeeStatus == employeePresent)
             {
