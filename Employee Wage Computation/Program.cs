@@ -13,26 +13,27 @@ namespace Employee_Wage_Computation
 
             int employeePresent = 1;
             int employeeAbsent = 0;
-            int employeePartTime = 3;
+            int employeePartTime = 2;
             int employeeStatus;
             int wagePerHour = 20;
             Random random = new Random();
             employeeStatus = random.Next(0, 3);
 
-            if (employeeStatus == employeePresent)
+            switch (employeeStatus)
             {
-                Console.WriteLine("Employee Present");
-                Console.WriteLine("Total wage is: " + wagePerHour * 8);
+                case employeePresent:
+                    Console.WriteLine("Employee Present");
+                    Console.WriteLine("Total wage is: " + wagePerHour * 8);
+                    break;
+                case employeeAbsent:
+                    Console.WriteLine("Employee Absent");
+                    break;
+                case employeePartTime:
+                    Console.WriteLine("Employee works part-time");
+                    Console.WriteLine("Total wage is: " + wagePerHour * 4);
+                    break;
             }
-            else if (employeeStatus == employeeAbsent)
-            {
-                Console.WriteLine("Employee Absent");
-            }
-            else 
-            {
-                Console.WriteLine("Employee works part-time");
-                Console.WriteLine("Total wage is: "+ wagePerHour*4);
-            }
+
 
         }
     }
