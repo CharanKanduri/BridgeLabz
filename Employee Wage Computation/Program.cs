@@ -6,51 +6,66 @@ namespace Employee_Wage_Computation
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("WELCOME TO EMPLOYEE WAGE COMPUTATION");
+            //Using Main Method only for Input calculation
 
-
-            //U1: Check Employee is Present or Absent using Random
+            Console.WriteLine("Welcome to employee wage computation");
 
            
-            int employeeStatus;
-            int totalWorkingDays = 0;
-            int totalWorkingHours = 0;
-            int monthlyWage = 0;
-            
-
-            int wagePerHour = 20;
-            Random random = new Random();
-            employeeStatus = random.Next(0, 3);
-
-            switch (employeeStatus)
-            {
-                case 1:
-                    Console.WriteLine("Full time- Employee Present");
-                   while(totalWorkingDays<=20 && totalWorkingHours<=100)
-                    {
-                        totalWorkingHours = totalWorkingHours + 8;
-                        totalWorkingDays++;
-                        monthlyWage= monthlyWage +(wagePerHour*8);
-                    }
-                    Console.WriteLine("Total wage for month is:"+monthlyWage);
-
-                    break;
-                case 0:
-                    Console.WriteLine("Employee Absent");
-                    break;
-                case 2:
-                    Console.WriteLine("part time- Employee Present");
-                    while (totalWorkingDays <= 20 && totalWorkingHours <= 100)
-                    {
-                        totalWorkingHours = totalWorkingHours + 4;
-                        totalWorkingDays++;
-                        monthlyWage = monthlyWage + (wagePerHour * 4);
-                    }
-                        Console.WriteLine("Total wage for month is: " + monthlyWage);
-                    break;
-            }
-
+            Console.WriteLine("Enter Company Name");
+            string companyName = Console.ReadLine();
+            Console.WriteLine("Enter wage per hour");
+            int wageperHour = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter total number of days");
+            int totalDays = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter maximum hours");
+            int totalHour = Convert.ToInt32(Console.ReadLine());
+            WageComputation (companyName,wageperHour,totalDays,totalHour);
 
         }
+        public static void WageComputation(string companyName, int wageperHour, int totalDays, int totalHour)
+        {
+            int workingDays = 0, hours = 0, dailyWage = 0, totalWage = 0, workingHour = 0;
+
+            //Creating object for Random class
+            Random random = new Random();
+
+            
+            while (workingDays <= totalDays && hours <= totalHour)
+            {
+                
+                int Attendance = random.Next(0, 3);
+               
+                switch (Attendance)
+                {
+                    case 1:   
+                        hours = 8;
+                        break;
+                    case 2:
+                      
+                        hours = 4;
+                        break;
+                    default:
+                         
+                        break;
+
+                }
+                //Calculation
+                dailyWage = hours * wageperHour;
+                totalWage += dailyWage;
+                workingHour += hours;
+                if (Attendance != 0)
+                {
+                    workingDays++;
+                }
+            }
+            //Print all Details
+            Console.WriteLine("Company Name:" + companyName);
+            Console.WriteLine("Working Hours :" + workingHour);
+            Console.WriteLine("Employee Wage Per day :" + dailyWage);
+            Console.WriteLine("Working days in a month :" + workingDays);
+            Console.WriteLine("Employee Wage for 20 working days :" + totalWage);
+            Console.WriteLine("\n");
+        }
+        
     }
 }
