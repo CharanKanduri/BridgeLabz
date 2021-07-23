@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace Employee_Wage_Computation
 {
@@ -29,6 +29,22 @@ namespace Employee_Wage_Computation
             //Creating object for Random class
             Random random = new Random();
 
+
+            if (employeeStatus == employeePresent)
+            {
+                Console.WriteLine("Employee Present");
+                Console.WriteLine("Total wage is: " + wagePerHour * 8);
+            }
+            else if (employeeStatus == employeeAbsent)
+            {
+                Console.WriteLine("Employee Absent");
+            }
+            else 
+            {
+                Console.WriteLine("Employee works part-time");
+                Console.WriteLine("Total wage is: "+ wagePerHour*4);
+            }
+
             
             while (workingDays <= totalDays && hours <= totalHour)
             {
@@ -47,6 +63,7 @@ namespace Employee_Wage_Computation
                     default:
                          
                         break;
+
 
                 }
                 //Calculation
